@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moja druhááá stránka</title>
+    <link rel="stylesheet" href="moje druhá stránka.css">
+
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<body>
+    <header>
+
+    </header>
+
+    <main>
+
+        <div class="container">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+        <div class="box">Box 4</div>
+        <div class="box">Box 5</div>
+    </div>
+    <h1>Náhodný obrázek kočky</h1>
+    <button id="loadCat">Načíst obrázek</button>
+
+    <div id="catContainer">
+        <!-- Obrázek bude načten sem -->
+    </div>
+   
+    <div class="alert alert-primary" role="alert">
+        A simple primary alert—check it out!
+      </div>
+
+      <button type="button" class="btn btn-outline-primary">Primary</button>
+    </main>
+
+    <footer>
+
+    </footer>
+
+
+    <p id="text1">Toto je nejaký môj textík</p>
+<button onclick="zrusText()">Zruš text</button>
+<button onclick="zmenFarbu()">Zmeň barvu</button>
+<button onclick="zmenSirku()">Zmeň šírku</button>
+
+
+<script>
+  
+    function zrusText (){
+        document.getElementById("text1").style.display = "none";
+    }
+
+    function zmenFarbu (){
+        document.getElementById("text1").style.color = "blue";
+        document.getElementById("text1").style.width = "400px";
+        document.getElementById("text1").textContent = "Toto je nový text";
+    }
+
+
+    function zmenSirku (){
+        document.getElementById("text1").style.width = "400px";
+    }
+
+
+
+    async function fetchCatImage() {
+            try {
+                const response = await fetch('https://api.thecatapi.com/v1/images/search');
+                const data = await response.json();
+                const catImageUrl = data[0].url; 
+
+                // Vytvoření elementu obrázku
+                const catContainer = document.getElementById('catContainer');
+                catContainer.innerHTML = `<img src="${catImageUrl}" alt="Kočka" style="max-width: 300px; margin-top: 20px;">`;
+            } catch (error) {
+                console.error('Chyba při načítání obrázku:', error);
+            }
+        }
+
+               document.getElementById('loadCat').addEventListener('click', fetchCatImage);
+
+               </script>
+
+
+
+</body>
+</html>

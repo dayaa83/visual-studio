@@ -1,0 +1,18 @@
+.nadpis {
+    color: red;
+}
+#nadpis2 {
+    color: blue;
+    background-color: yellowgreen;
+    background-image: url('img/zuzka.png');
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+
+/*.odstavec {
+    color: aqua;
+}*/
+
+p {
+    color: orange;
+}
